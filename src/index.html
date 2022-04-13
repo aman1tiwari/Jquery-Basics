@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paragraph</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  </head>
-  <body>
+    <style>
+        button{
+            width: 7%;
+        }
+        #image{
+            width: 20%;
+            margin-top: 3%;
+        }
+    </style>
+</head>
+<body>
     <div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda sit
-        nostrum reiciendis harum similique aliquam cupiditate excepturi placeat
-        officiis expedita? Est minus architecto illum et beatae nemo quas
-        consectetur iste.
-      </p>
+        <button class="pre">Previous</button>
+        <button class="next">Next</button>
     </div>
+    <div>
+        <img src="./image1.jpg" id="image" alt="img">
+    </div>
+
     <script>
-        $(document).ready(function(){
-            $("p").click(function(){
-                $(this).css("color","red")
-                alert("Clicked me!")
-            })
+        var image=['image1','image2','image3','image4']
+        var i=0;
+        $('.next').click(function(){
+            if(i!=3){
+                i++;
+                $('#image').attr("src","./"+image[i]+".jpg");
+            }
+        })
+        $('.pre').click(function(){
+            if(i!=0){
+                i--;
+                $('#image').attr("src","./"+image[i]+".jpg");
+            }
         })
     </script>
-  </body>
+
+</body>
 </html>
