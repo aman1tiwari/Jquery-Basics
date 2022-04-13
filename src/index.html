@@ -1,46 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <title>Test</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <body>
-    <div class="test">
-      <p>Car Details</p>
-      <p>
-        In real life, a car is an object. A car has properties like weight and
-        color, and methods like start and stop. All cars have the same
-        properties, but the property values differ from car to car.
-      </p>
-      <p>
-        All cars have the same methods, but the methods are performed at
-        different times.
-      </p>
-    </div>
-    <div class="demo">
-      <p>Food Details</p>
-      <p>The seven food categories are</p>
-      <p>
-        Vegetables, Fruits, Grains, legumes, nuts and seeds, Meat and poultry,
-        Fish and seafood, Dairy foods, Eggs
-      </p>
-      <p>
-        Food sources from animals, birds, seafood and some plants provide
-        protein that is the building blocks of cells
-      </p>
-    </div>
-    <div class="test">
-      <p>Mobile Details</p>
-      <p>
-        There are three categories of mobile phones: basic phones, feature
-        phones, and smartphones.
-      </p>
-      <p>Smartphones are equipped with a QWERTY keypad.</p>
-    </div>
-    <script>
-        setTimeout(function(){ 
-     $(".test").children().first().css({"color":"orange"});
-     $(".test").children().last().css({"color":"blue"});
-   },5000);
-   </script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of products</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="products">
+        <h1>Products</h1>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Size/Color</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Duffle Bag</td>
+            <td>
+              <select id="slist" >
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </td>
+            <td id="price">1000/-</td>
+          </tr>
+          <tr>
+            <td>T-Shirts</td>
+            <td>
+              <select id="clist" >
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+              </select>
+            </td>
+            <td id="cprice">1200/-</td>
+          </tr>
+        </table>
+      </div>
+      <script>
+           $("#slist").change(function(){
+      var val = $("#slist").val(); 
+      $("#price").empty();
+      if(val=="medium"){
+        $("#price").append("2000/-");
+      }
+      else if(val=="large"){
+        $("#price").append("3000/-");
+      }
+      else {
+        $("#price").append("1000/-");
+      }
+    });
+
+    $("#clist").change(function(){
+      var val = $("#clist").val(); 
+      $("#cprice").empty();
+      if(val=="yellow"){
+        $("#cprice").append("3500/-");
+      }else {
+        $("#cprice").append("1200/-");
+      }
+    }); 
+      </script>
+</body>
 </html>
