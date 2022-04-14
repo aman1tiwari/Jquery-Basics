@@ -4,43 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Images</title>
+    <title>Auto suggestions</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        button{
-            width: 7%;
-        }
-        #image{
-            width: 20%;
-            margin-top: 3%;
-        }
-    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </head>
 <body>
     <div>
-        <button class="pre">Previous</button>
-        <button class="next">Next</button>
+        <label for="names">Suggestions:</label>
+        <input id="names">
     </div>
-    <div>
-        <img src="./image1.jpg" id="image" alt="img">
-    </div>
-
-    <script>
-        var image=['image1','image2','image3','image4']
-        var i=0;
-        $('.next').click(function(){
-            if(i!=3){
-                i++;
-                $('#image').attr("src","./"+image[i]+".jpg");
-            }
-        })
-        $('.pre').click(function(){
-            if(i!=0){
-                i--;
-                $('#image').attr("src","./"+image[i]+".jpg");
-            }
-        })
-    </script>
-
 </body>
 </html>
+    <script>
+        $(function(){
+            var Flowers=["Lily","Rose","Tulip","Lotus","Marigold"];
+            $("#names").autocomplete({
+                source:Flowers
+            });
+        });
+    </script>
