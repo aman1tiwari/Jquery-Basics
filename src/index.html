@@ -4,23 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto suggestions</title>
+    <title>Lists and sub-lists</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </head>
 <body>
     <div>
-        <label for="names">Suggestions:</label>
-        <input id="names">
-    </div>
+        <h2>Product List</h2>
+        <ul id="complete_ul">
+          <li><a href="">Cloths</a><button id="li_1">+</button></li>
+          <li>
+            <ul id="li-cloth">
+              <li><a href="">T-shirt</a><button class="cloth-li">+</button> </li>
+              <li><a href="">Trouser</a><button class="cloth-li">+</button> </li>
+            </ul>
+          </li>
+          <li><a href="">Electronics</a><button id="electronics-ul">+</button></li>
+          <li>
+            <ul id="li-add-ele">
+              <li><a href="">Mobiles</a><button class="electronics-li">+</button></li>
+              <li><a href="">Tabs</a><button class="electronics-li">+</button></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <script>
+          $(".cloth-li").click(()=>{
+       $("#li-cloth").append(`<li><a href="">Trouser</a><button class="cloth-li">+</button> </li>`)
+     });
+     $(".electronics-li").click(()=>{
+      $("#li-add-ele").append(`<li><a href="">Tabs</a><button class="electronics-ul">+</button></li>`)
+    });
+
+    $("#li_1").click(()=>{
+      $("#complete_ul").append(` <li><a href="">Cloths</a><button id="li_1">+</button></li>
+      <li>
+        <ul id="li-cloth">
+          <li><a href="">T-shirt</a><button class="cloth-li">+</button> </li>
+          <li><a href="">Trouser</a><button class="cloth-li">+</button> </li>
+        </ul>
+      </li>`)
+    });
+    $("#electronics-ul").click(()=>{
+      $("#main_ul").append(`  <li><a href="">Electronics</a><button id="electronics-ul">+</button></li>
+      <li>
+        <ul id="li-add-ele">
+          <li><a href="">Mobiles</a><button class="electronics-li">+</button></li>
+          <li><a href="">Tabs</a><button class="electronics-li">+</button></li>
+        </ul>
+      </li>
+    </ul>`)
+    });
+      </script>
 </body>
 </html>
-    <script>
-        $(function(){
-            var Flowers=["Lily","Rose","Tulip","Lotus","Marigold"];
-            $("#names").autocomplete({
-                source:Flowers
-            });
-        });
-    </script>
